@@ -14,7 +14,6 @@
 }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -64,6 +63,7 @@
 
 .main-nav {
   background: #fff;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .nav-content {
@@ -71,6 +71,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+  position: relative;
+}
+
+.nav-content > div:last-child {
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.nav-content > div:first-child {
+  margin-right: auto;
+  margin-left: 40px;
 }
 
 .logo {
@@ -78,7 +89,7 @@
 }
 
 .logo-image {
-  height: 50px;
+  height: 80px;
   width: auto;
   max-width: 200px;
 }
@@ -91,7 +102,9 @@
 }
 
 .desktop-menu {
-  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-list {
@@ -105,6 +118,17 @@
   position: relative;
 }
 
+.nav-join-login {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-join-login2 {
+  position: relative;
+}
+
 .nav-link {
   color: #333;
   text-decoration: none;
@@ -115,7 +139,17 @@
   white-space: nowrap;
 }
 
-.nav-link:hover {
+.nav-account-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover, .nav-account-link:hover {
   color: #d32f2f;
 }
 

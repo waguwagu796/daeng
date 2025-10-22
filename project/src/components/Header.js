@@ -17,8 +17,6 @@ const Header = () => {
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
                 <option value="ja">日本語</option>
-                <option value="zh">简体中文</option>
-                <option value="zh-tw">繁體中文（臺灣）</option>
               </select>
             </div>
           </div>
@@ -30,7 +28,7 @@ const Header = () => {
           <div className="nav-content">
             <div className="logo">
               <a href="/">
-                <img src='/logo/DaengTrip2.jpg' alt="Logo" className="logo-image" />
+                <img src='/logo/DaengTrip.png' alt="Logo" className="logo-image" />
               </a>
             </div>
 
@@ -49,7 +47,14 @@ const Header = () => {
             </div>
 
             <div>
-              
+              <ul className="nav-join-login">
+                <li className="nav-join-login2">
+                  <a href="#join" className="nav-account-link">회원가입</a>
+                </li>
+                <li className="nav-join-login2">
+                  <a href="#login" className="nav-account-link">로그인</a>
+                </li>
+              </ul>
             </div>
 
           </div>
