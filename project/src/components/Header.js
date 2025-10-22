@@ -17,8 +17,6 @@ const Header = () => {
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
                 <option value="ja">日本語</option>
-                <option value="zh">简体中文</option>
-                <option value="zh-tw">繁體中文（臺灣）</option>
               </select>
             </div>
           </div>
@@ -49,7 +47,14 @@ const Header = () => {
             </div>
 
             <div>
-              
+              <ul className="nav-list">
+                <li className="nav-item">
+                  <a href="#join" className="nav-link">회원가입</a>
+                </li>
+                <li className="nav-item">
+                  <a href="#login" className="nav-link">로그인</a>
+                </li>
+              </ul>
             </div>
 
           </div>
