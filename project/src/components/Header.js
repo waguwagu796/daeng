@@ -28,7 +28,7 @@ const Header = () => {
           <div className="nav-content">
             <div className="logo">
               <a href="/">
-                <img src='/logo/DaengTrip2.jpg' alt="Logo" className="logo-image" />
+                <img src='/logo/DaengTrip.png' alt="Logo" className="logo-image" />
               </a>
             </div>
 
@@ -47,12 +47,12 @@ const Header = () => {
             </div>
 
             <div>
-              <ul className="nav-list">
-                <li className="nav-item">
-                  <a href="#join" className="nav-link">회원가입</a>
+              <ul className="nav-join-login">
+                <li className="nav-join-login2">
+                  <a href="#join" className="nav-account-link">회원가입</a>
                 </li>
-                <li className="nav-item">
-                  <a href="#login" className="nav-link">로그인</a>
+                <li className="nav-join-login2">
+                  <a href="#login" className="nav-account-link">로그인</a>
                 </li>
               </ul>
             </div>
