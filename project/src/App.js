@@ -9,7 +9,7 @@ function App() {
       <main className="main-content">
         <div className="hero-section">
           <h1>지도는</h1>
-          <p>여기에121qw2</p>
+          <p>여기에</p>
         </div>
       </main>
     </div>
