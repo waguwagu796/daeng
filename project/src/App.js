@@ -10,7 +10,7 @@ function App() {
         <div className="hero-section">
           <h1>지도는</h1>
           <p>여기에121qw2</p>
-          {/* 깃 테스트 */}
+          {/* 깃 테스트11 */}
         </div>
       </main>
     </div>
