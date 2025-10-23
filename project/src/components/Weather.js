@@ -4,6 +4,7 @@ import './Weather.css';
 const Weather = () => {
   const [selectedRegion, setSelectedRegion] = useState('서울');
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -12,7 +13,7 @@ const Weather = () => {
     '충청북도', '충청남도', '경상북도', '경상남도', '전라북도', '전라남도', '제주도'
   ];
 
-  // 지역별 좌표 (예시)
+  // 지역별 좌표
   const regionCoords = {
     '서울': { lat: 37.5665, lon: 126.9780 },
     '대전': { lat: 36.3504, lon: 127.3845 },
@@ -42,24 +43,30 @@ const Weather = () => {
 
     try {
       const coords = regionCoords[region];
-      const API_KEY = '5513e2cc82166158bde0ac55dafb5ea7'; 
+      const API_KEY = '4716996828234e10c7d5f4958a41e4f9'; 
       
-      // 무료 API 2.5 버전 사용 분당 60번 가능하옵니다
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=metric&lang=kr`;
+      const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=metric&lang=kr`;
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=metric&lang=kr`;
 
-      const response = await fetch(url);
+      const [weatherResponse, forecastResponse] = await Promise.all([
+        fetch(weatherUrl),
+        fetch(forecastUrl)
+      ]);
       
-      if (!response.ok) {
+      if (!weatherResponse.ok || !forecastResponse.ok) {
         throw new Error('날씨 정보를 불러올 수 없습니다');
       }
 
-      const data = await response.json();
-      setWeatherData(data);
+      const weatherData = await weatherResponse.json();
+      const forecastData = await forecastResponse.json();
+      
+      setWeatherData(weatherData);
+      setForecastData(forecastData);
     } catch (err) {
       setError('날씨 정보를 불러오는 중 오류가 발생했습니다. API 키를 확인해주세요.');
       console.error('Weather fetch error:', err);
-      
-      // 테스트용 더미 데이터 (API 키 없을 때)
+
+      // 테스트용 더미 데이터
       setWeatherData({
         name: region,
         main: { temp: 18, feels_like: 16, humidity: 65 },
@@ -71,46 +78,44 @@ const Weather = () => {
     }
   };
 
-  const getWalkingRecommendation = () => {
-    if (!weatherData) return null;
-
-    const temp = weatherData.main.temp;
-    const weather = weatherData.weather[0].main;
-
-    if (weather === 'Rain' || weather === 'Snow') {
-      return {
-        status: 'bad',
-        message: '산책하기 좋지 않아요',
-        icon: '❌'
-      };
-    } else if (temp >= 15 && temp <= 25) {
-      return {
-        status: 'good',
-        message: '산책하기 완벽한 날씨예요!',
-        icon: '🐕'
-      };
-    } else if (temp < 5 || temp > 30) {
-      return {
-        status: 'caution',
-        message: '산책 시 주의가 필요해요',
-        icon: '⚠️'
-      };
-    } else {
-      return {
-        status: 'normal',
-        message: '산책 가능해요',
-        icon: '✅'
-      };
-    }
+  const getDailyForecast = () => {
+    if (!forecastData) return [];
+    
+    const dailyData = {};
+    const today = new Date().toDateString();
+    
+    forecastData.list.forEach(item => {
+      const date = new Date(item.dt * 1000);
+      const dateStr = date.toDateString();
+      if (dateStr === today) return;
+      
+      if (!dailyData[dateStr]) {
+        dailyData[dateStr] = {
+          date,
+          temps: [],
+          weather: item.weather[0],
+          main: item.weather[0].main
+        };
+      }
+      dailyData[dateStr].temps.push(item.main.temp);
+    });
+    
+    return Object.values(dailyData).slice(0, 7).map(day => ({
+      dayName: ['일', '월', '화', '수', '목', '금', '토'][day.date.getDay()],
+      high: Math.round(Math.max(...day.temps)),
+      low: Math.round(Math.min(...day.temps)),
+      icon: day.weather.icon,
+      main: day.main
+    }));
   };
 
-  const recommendation = getWalkingRecommendation();
+  const dailyForecast = getDailyForecast();
 
   return (
     <div className="weather-container">
       <div className="weather-content">
         <h1 className="weather-title">날씨 정보</h1>
-        <p className="weather-subtitle">우리 댕댕이와 산책하기 좋은 날씨인지 확인해보세요</p>
+        <p className="weather-subtitle">우리 지역의 최신 날씨를 확인해보세요</p>
 
         {/* 지역 선택 */}
         <div className="region-selector">
@@ -128,7 +133,7 @@ const Weather = () => {
           </div>
         </div>
 
-        {/* 날씨 정보 카드 */}
+        {/* 날씨 정보 */}
         {loading ? (
           <div className="loading">날씨 정보를 불러오는 중...</div>
         ) : weatherData ? (
@@ -164,11 +169,26 @@ const Weather = () => {
               </div>
             </div>
 
-            {/* 산책 추천 */}
-            {recommendation && (
-              <div className={`walking-recommendation ${recommendation.status}`}>
-                <span className="recommendation-icon">{recommendation.icon}</span>
-                <span className="recommendation-text">{recommendation.message}</span>
+            {/* 주간 예보 */}
+            {dailyForecast.length > 0 && (
+              <div className="weekly-forecast">
+                <h3>주간 예보</h3>
+                <div className="forecast-days">
+                  {dailyForecast.map((day, index) => (
+                    <div key={index} className="forecast-day">
+                      <div className="day-name">{day.dayName}</div>
+                      <img 
+                        src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
+                        alt="weather icon"
+                        className="forecast-icon"
+                      />
+                      <div className="day-temps">
+                        <span className="temp-high">{day.high}°</span>
+                        <span className="temp-low">{day.low}°</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
