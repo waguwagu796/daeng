@@ -154,7 +154,7 @@ const Login = () => {
         <div className="login-footer">
           <Link to="/find-password" className="find-link">비밀번호 찾기</Link>
           <span className="separator">|</span>
-          <Link to="/join" className="find-link">회원가입</Link>
+          <Link to="/register" className="find-link">회원가입</Link>
         </div>
       </div>
     </div>
