@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Destinations from "./components/Destinations";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ForgotPassword from './components/ForgotPassword';
+import Weather from './components/Weather';
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/destinations" element={<Destinations />} />
+        <Route path="/weather" element={<Weather />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/find-password" element={<ForgotPassword />} />
         <Route path="*" element={<h1 align="center" style={{ color: 'red' }}>404 - 페이지를 찾을 수 없습니다</h1>} />
       </Routes>
     </BrowserRouter>
