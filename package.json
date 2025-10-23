@@ -21,7 +21,8 @@
     "mongoose": "^6.2.10",
     "multer": "^2.0.2",
     "react-i18next": "^16.1.4",
-    "react-router-dom": "^6.28.0"
+    "react-router-dom": "^6.28.0",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",

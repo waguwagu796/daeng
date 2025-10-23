@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Destinations.css';
+import axios from 'axios';
 
 const Destinations = () => {
     const [selectedAddress, setSelectedAddress] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
+
+    const [data,setData] = useState([])
+    const [isLoading,setIsLoading] = useState(false)
+    const [error,setError] = useState('')
+
+    useEffect(()=>{
+        
+        //newsapi.org의 개인 api
+        const API_KEY = 'e4fb0451-f64f-46f9-8f8f-c4267592f404'
+
+        // const query = category === 'all' ? '' : `&category=${category}` //GET방식으로 category받기
+
+        const url = `https://api.kcisa.kr/openapi/API_TOU_050/request?serviceKey=${API_KEY}`
+
+        axios.get(url, {responseType: 'text'})
+        .then(res=>{
+            setData(res.data.response?.body?.items?.item || [])  //다른 데이터는 필요없고 articles만 필요하기 때문에 articles만 읽어올 수 있도록 설정해줌
+            //setIsLoading(false)
+            setError('')
+        })
+        .catch(error => {
+            setData([])
+            //setIsLoading(true)
+            setError('헤드라인을 읽어올 수 없습니다.')
+        })
+
+    },[])
 
     const address = ['서울', '대전', '대구', '부산', '광주', '울산', '인천', '경기도', '강원도', '충청북도', '충청남도', '경상북도', '경상남도', '전라북도', '전라남도', '제주도'];
     const categories = ['반려의료', '반려동반여행', '반려동물 서비스', '반려동물식당카페'];
@@ -23,7 +51,7 @@ const Destinations = () => {
         { address: '부산광역시 연제구 거제대로 278', category1: '반려의료', category2: '동물병원', title: '부산동물메디컬센터', description: '운영시간 : 월~금 9:00~19:00, 토~일, 법정공휴일 9:00~18:00 | 휴무일 : 연중무휴 | 주차가능 | 반려동물 동반가능 | 반려동물 제한사항 : 제한사항 없음', tel:'051-868-7591', img: '/images/jeju_fire.jpg' },
     ];
 
-    const processedDestinations = destinations1.map(item => {
+    const processedDestinations = data.map(item => {
         const match = item.address.match(/^[가-힣]+(?:특별시|광역시|도)/);
         const region = match ? match[0] : '기타';
         return { ...item, region };
