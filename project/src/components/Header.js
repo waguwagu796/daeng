@@ -37,7 +37,7 @@ const Header = () => {
             <div className="desktop-menu">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <Link to="/destinations" className="nav-link" onClick={() => console.log("클릭됨")}>여행지</Link>
+                  <Link to="/destinations" className="nav-link">여행지</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/community" className="nav-link">커뮤니티</Link>

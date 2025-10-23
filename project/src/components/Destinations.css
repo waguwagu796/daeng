@@ -1,0 +1,128 @@
+.destinations-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.destinations-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.destinations-header p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* 선택 영역 */
+.selection-section {
+    margin-bottom: 40px;
+}
+
+.selection-section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.select-btn {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-btn:hover {
+    border-color: #d32f2f;
+    color: #d32f2f;
+}
+
+.select-btn.active {
+    background: #d32f2f;
+    color: #fff;
+    border-color: #d32f2f;
+}
+
+/* 추천 리스트 */
+.recommend-section h2 {
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.destination-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.destination-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.destination-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.destination-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.destination-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.destination-info p {
+    font-size: 15px;
+    color: #555;
+}
+
+.no-result {
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* 반응형 */
+@media (max-width: 767px) {
+        .destinations-header h1 {
+        font-size: 28px;
+    }
+
+    .select-btn {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    .destination-info h3 {
+        font-size: 18px;
+    }
+}
