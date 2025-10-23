@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,7 +8,8 @@ const Header = () => {
   return (
     <header className="header">
 
-      <div className="top-nav">
+      {/* 언어 변경 영역 */}
+      {/* <div className="top-nav">
         <div className="container">
           <div className="top-nav-content">
             <div className="meetings-events">
@@ -21,27 +23,27 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <nav className="main-nav">
         <div className="container">
           <div className="nav-content">
             <div className="logo">
-              <a href="/">
+              <Link to="/">
                 <img src='/logo/DaengTrip.png' alt="Logo" className="logo-image" />
-              </a>
+              </Link>
             </div>
 
             <div className="desktop-menu">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <a href="#destinations" className="nav-link">여행지</a>
+                  <Link to="/destinations" className="nav-link" onClick={() => console.log("클릭됨")}>여행지</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="#community" className="nav-link">커뮤니티</a>
+                  <Link to="/community" className="nav-link">커뮤니티</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="#weather" className="nav-link">날씨 정보</a>
+                  <Link to="/weather" className="nav-link">날씨 정보</Link>
                 </li>
               </ul>
             </div>
@@ -49,10 +51,10 @@ const Header = () => {
             <div>
               <ul className="nav-join-login">
                 <li className="nav-join-login2">
-                  <a href="#join" className="nav-account-link">회원가입</a>
+                  <Link to="/join" className="nav-account-link">회원가입</Link>
                 </li>
                 <li className="nav-join-login2">
-                  <a href="#login" className="nav-account-link">로그인</a>
+                  <Link to="/login" className="nav-account-link">로그인</Link>
                 </li>
               </ul>
             </div>
