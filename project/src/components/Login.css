@@ -156,7 +156,7 @@
 .login-button {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #4ade80 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%);
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -164,19 +164,19 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 6px 15px rgba(255, 112, 67, 0.3);
 }
 
 /* 버튼 호버 시 입체감 + 살짝 올라오기 */
 .login-button:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(6, 182, 212, 0.35);
+  box-shadow: 0 12px 25px rgba(255, 112, 67, 0.35);
 }
 
 /* 버튼 클릭 시 살짝 눌림 */
 .login-button:active:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 6px 15px rgba(255, 112, 67, 0.3);
 }
 
 /* 비활성화 상태 */

@@ -150,6 +150,7 @@ const Login = () => {
             {loading ? '로그인 중...' : '로그인'}
           </button>
         </form>
+        
 
         <div className="login-footer">
           <Link to="/find-password" className="find-link">비밀번호 찾기</Link>

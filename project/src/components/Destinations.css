@@ -47,14 +47,14 @@
 }
 
 .select-btn:hover {
-    border-color: #d32f2f;
-    color: #d32f2f;
+    border-color: #ff7043;
+    color: #ff7043;
 }
 
 .select-btn.active {
-    background: #d32f2f;
+    background: #ff7043;
     color: #fff;
-    border-color: #d32f2f;
+    border-color: #ff7043;
 }
 
 /* 추천 리스트 */

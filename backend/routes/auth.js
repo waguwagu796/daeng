@@ -3,6 +3,10 @@ const router = express.Router();
 const { register, login, getMe } = require('../controllers/authController');
 const { protect } = require('../middleware/auth');
 
+router.post('/forgot-password', forgotPassword);
+router.put('/reset-password/:token', resetPassword);
+router.put('/update-password', protect, updatePassword);
+
 // 회원가입
 router.post('/register', register);
 
