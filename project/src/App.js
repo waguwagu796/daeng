@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ForgotPassword from './components/ForgotPassword';
 import Weather from './components/Weather';
+import Community from "./components/Community";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/destinations" element={<Destinations />} />
+        <Route path="/community" element={<Community />} />
         <Route path="/weather" element={<Weather />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
