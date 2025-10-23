@@ -74,7 +74,7 @@ const Destinations = () => {
                 <p>지역과 카테고리를 선택하여 여행지를 찾아보세요.</p>
             </div>
 
-            {isLoading && <p>로딩 중...</p>}
+            {/* {isLoading && <p>로딩 중...</p>} */}
             {error && <p className="error">{error}</p>}
 
             {/* 지역 선택 */}
@@ -116,10 +116,10 @@ const Destinations = () => {
                 <div className="recommend-section">
                     <h2>추천 여행지</h2>
                     {/* 디버깅용 정보 표시 */}
-                    <div style={{padding: '5px', background: '#f0f0f0', margin: '15px 0'}}>
-                        {/* <p>전체 데이터 개수: {data.length}</p> */}
-                        <p>{filtered.length}곳의 장소가 검색되었습니다 !</p>
-                    </div>
+                    {filtered.length !== 0 ? (
+                        <div style={{padding: '5px', background: '#f0f0f0', margin: '15px 0'}}>
+                            <p>{filtered.length}곳의 장소가 검색되었습니다 !</p>
+                        </div> ) : null}
                     {filtered.length === 0 ? (
                         <p className="no-result">해당 조건의 추천지가 없습니다.</p>
                     ) : (
