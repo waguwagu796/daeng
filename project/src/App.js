@@ -15,7 +15,7 @@ function App() {
         <Route path="/destinations" element={<Destinations />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="*" element={<div>404 - 페이지를 찾을 수 없습니다</div>} />
+        <Route path="*" element={<h1 align="center" style={{ color: 'red' }}>404 - 페이지를 찾을 수 없습니다</h1>} />
       </Routes>
     </BrowserRouter>
   );
