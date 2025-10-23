@@ -20,7 +20,17 @@
 
 /* 선택 영역 */
 .selection-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     margin-bottom: 40px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.selection-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .selection-section h2 {
@@ -37,11 +47,13 @@
 }
 
 .select-btn {
-    background: #fff;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    padding: 10px 25px;
-    font-size: 14px;
+    padding: 12px 24px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    background: white;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -49,12 +61,16 @@
 .select-btn:hover {
     border-color: #ff7043;
     color: #ff7043;
+    transform: translateY(-2px);
 }
 
 .select-btn.active {
     background: #ff7043;
     color: #fff;
     border-color: #ff7043;
+    border-color: transparent;
+    box-shadow: 0 6px 15px rgba(255, 112, 67, 0.3);
+    transform: translateY(-2px);
 }
 
 /* 추천 리스트 */
