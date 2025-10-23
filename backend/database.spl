@@ -1,0 +1,69 @@
+-- 데이터베이스 생성
+CREATE DATABASE IF NOT EXISTS pro_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE pro_db;
+
+-- members 테이블
+CREATE TABLE IF NOT EXISTS members (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  provider VARCHAR(20) DEFAULT 'LOCAL',
+  provider_id VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- places 테이블
+CREATE TABLE IF NOT EXISTS places (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  address VARCHAR(255),
+  description TEXT,
+  category VARCHAR(50),
+  image_url VARCHAR(255),
+  rating DECIMAL(2,1),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- boards 테이블
+CREATE TABLE IF NOT EXISTS boards (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  member_id INT NOT NULL,
+  title VARCHAR(200) NOT NULL,
+  content TEXT NOT NULL,
+  image_url VARCHAR(255),
+  views INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE CASCADE,
+  INDEX idx_member_id (member_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- comments 테이블
+CREATE TABLE IF NOT EXISTS comments (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  board_id INT NOT NULL,
+  member_id INT NOT NULL,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (board_id) REFERENCES boards(id) ON DELETE CASCADE,
+  FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE CASCADE,
+  INDEX idx_board_id (board_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- wishlist 테이블
+CREATE TABLE IF NOT EXISTS wishlist (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  member_id INT NOT NULL,
+  place_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE CASCADE,
+  FOREIGN KEY (place_id) REFERENCES places(id) ON DELETE CASCADE,
+  UNIQUE KEY unique_wishlist (member_id, place_id),
+  INDEX idx_member_id (member_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

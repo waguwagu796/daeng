@@ -51,7 +51,7 @@ const Header = () => {
             <div>
               <ul className="nav-join-login">
                 <li className="nav-join-login2">
-                  <Link to="/join" className="nav-account-link">회원가입</Link>
+                  <Link to="/register" className="nav-account-link">회원가입</Link>
                 </li>
                 <li className="nav-join-login2">
                   <Link to="/login" className="nav-account-link">로그인</Link>
@@ -68,4 +68,3 @@ const Header = () => {
 };
 
 export default Header;
-

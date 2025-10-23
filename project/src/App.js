@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Destinations from "./components/Destinations";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/destinations" element={<Destinations />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<div>404 - 페이지를 찾을 수 없습니다</div>} />
       </Routes>
     </BrowserRouter>
