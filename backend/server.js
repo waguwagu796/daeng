@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
+const reviewRouter = require('./routes/review');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // 라우트
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
+app.use('/api',reviewRouter)
 
 // 기본 라우트
 app.get('/', (req, res) => {

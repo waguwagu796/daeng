@@ -128,21 +128,47 @@ const Destinations = () => {
                         <p className="no-result">해당 조건의 추천지가 없습니다.</p>
                     ) : (
                         <div className="destination-list">
-                            {filtered.map((destination, id) => (
-                                <div className="destination-card" key={id}>
-                                    {/* <img src={destination.img || '/images/default.jpg'} alt={destination.title} className="destination-img" /> */}
-                                    <div className="destination-info"
-                                        key={id} 
-                                        onClick={()=>navigate('/destination-detail', {state: {destination}})}
-                                        style={{cursor: 'pointer'}}>
-                                        <h3>{destination.title}</h3>
-                                        <p>{destination.category2}</p>
-                                        <p>{destination.address}</p>
-                                        <p>{destination.description}</p>
-                                        <p>{destination.tel}</p>
+                            {filtered.map((destination, id) => {
+                                // 좌표 문자열 파싱
+                                let latitude = null;
+                                let longitude = null;
+
+                                const coordsString = destination.coordinates;
+
+                                if (coordsString) {
+                                    const match = coordsString.match(/N([\d.]+),\s*E([\d.]+)/);
+                                    if (match) {
+                                        latitude = parseFloat(match[1]);
+                                        longitude = parseFloat(match[2]);
+                                    }
+                                }
+
+                                return (
+                                    <div className="destination-card" key={id}>
+                                        <div className="destination-info"
+                                            onClick={() => 
+                                                navigate('/destination-detail', {
+                                                state: {
+                                                    destination:{
+                                                    ...destination,
+                                                    latitude,
+                                                    longitude
+                                                    },
+                                                },
+                                            })
+                                        }
+                                            style={{cursor: 'pointer'}}
+                                        >
+                                            <h3>{destination.title}</h3>
+                                            <p>{destination.category2}</p>
+                                            <p>{destination.address}</p>
+                                            <p>{destination.description}</p>
+                                            <p>{destination.tel}</p>
+                                            {isLoading && <p>로딩 중...</p>}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                )
+                            })}
                         </div>
                     )}
                 </div>
@@ -152,3 +178,28 @@ const Destinations = () => {
 };
 
 export default Destinations;
+
+/**
+{filtered.map((destination, id) => (
+                                <div className="destination-card" key={id}>
+                                    {* <img src={destination.img || '/images/default.jpg'} alt={destination.title} className="destination-img" /> *}
+                                    <div className="destination-info"
+                                        key={id} 
+                                        onClick={()=>navigate('/destination-detail', {state: {
+                                            ...destination,
+                                            latitude,
+                                            longitude
+                                        }})}
+                                        style={{cursor: 'pointer'}}>
+                                        <h3>{destination.title}</h3>
+                                        <p>{destination.category2}</p>
+                                        <p>{destination.address}</p>
+                                        <p>{destination.description}</p>
+                                        <p>{destination.tel}</p>
+                                    </div>
+                                </div>
+                            ))} 
+
+
+
+ */
