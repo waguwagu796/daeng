@@ -37,13 +37,24 @@
 }
 
 /* 선택 영역 */
-.selection-section {
+/* .selection-section {
     background: #ffffff;
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     margin-bottom: 40px;
     transition: transform 0.3s, box-shadow 0.3s;
+} */
+
+.selection-section2 {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    animation: fadeIn 0.5s 
+ease 0.1s both;
 }
 
 .selection-section:hover {
