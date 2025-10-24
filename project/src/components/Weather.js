@@ -142,7 +142,7 @@ const Weather = () => {
               <div className="weather-icon">
                 {weatherData.weather[0].icon && (
                   <img 
-                    src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`}
+                    src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon.replace('d', 'n')}@4x.png`}
                     alt={weatherData.weather[0].description}
                   />
                 )}
@@ -178,7 +178,7 @@ const Weather = () => {
                     <div key={index} className="forecast-day">
                       <div className="day-name">{day.dayName}</div>
                       <img 
-                        src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
+                        src={`https://openweathermap.org/img/wn/${day.icon.replace('d', 'n')}@2x.png`}
                         alt="weather icon"
                         className="forecast-icon"
                       />
