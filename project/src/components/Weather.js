@@ -114,7 +114,7 @@ const Weather = () => {
 
   return (
     <div className="weather-container">
-      <div className="weather-content">
+      <div className="weather-content"><br/><br/><br/>
         <h1 className="weather-title">날씨 정보</h1>
         <p className="weather-subtitle">우리 지역의 최신 날씨를 확인해보세요</p>
 
