@@ -53,7 +53,7 @@ const PetTravelGuide = () => {
     },
     header: {
       backgroundColor: 'white',
-      padding: '4rem 1rem',
+      padding: '4rem 1rem 1rem 1rem',
       textAlign: 'center'
     },
    
@@ -244,10 +244,9 @@ const PetTravelGuide = () => {
         <div style={{maxWidth: '64rem', margin: '0 auto'}}>
           
           <h1 style={styles.headerTitle}>
-            반려동물 동반 여행 시,<br />
-            편리하게 이동하세요
+            반려동물 교통정보 가이드
           </h1>
-          <p className="weather-subtitle">우리 지역의 최신 날씨를 확인해보세요</p>
+          <p className="weather-subtitle">반려동물 동반 여행 시, 편리하게 이동하세요</p>
         </div>
       </div>
       <div style={styles.infoText}>
