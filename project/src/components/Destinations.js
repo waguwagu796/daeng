@@ -11,6 +11,11 @@ const Destinations = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 9;
+
+
+
     // 상세페이지 연결
     const navigate = useNavigate()
 
@@ -71,6 +76,13 @@ const Destinations = () => {
             (!selectedCategory || item.category1 === selectedCategory)
     );
 
+    const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+    const currentItems = filtered.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
     return (
         <div className="destinations-page">
             <div className="destinations-header">
@@ -127,8 +139,9 @@ const Destinations = () => {
                     {filtered.length === 0 ? (
                         <p className="no-result">해당 조건의 추천지가 없습니다.</p>
                     ) : (
+                        <>
                         <div className="destination-list">
-                            {filtered.map((destination, id) => {
+                            {currentItems.map((destination, id) => {
                                 // 좌표 문자열 파싱
                                 let latitude = null;
                                 let longitude = null;
@@ -170,6 +183,42 @@ const Destinations = () => {
                                 )
                             })}
                         </div>
+
+                        {/* 페이지네이션 버튼 */}
+                        <div className="pagination">
+                        <button
+                            onClick={() => setCurrentPage((prev) => Math.max(1))}
+                            disabled={currentPage === 1}
+                        >
+                            처음
+                        </button>
+                        <button
+                            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                        >
+                            이전
+                        </button>
+                        <span>
+                            {currentPage} / {totalPages}
+                        </span>
+                        <button
+                            onClick={() =>
+                            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                            }
+                            disabled={currentPage === totalPages}
+                        >
+                            다음
+                        </button>
+                        <button
+                            onClick={() =>
+                            setCurrentPage(() => Math.min(totalPages))
+                            }
+                            disabled={currentPage === totalPages}
+                        >
+                            마지막
+                        </button>
+                        </div>
+                        </>
                     )}
                 </div>
             )}
