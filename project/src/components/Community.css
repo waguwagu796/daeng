@@ -1,0 +1,130 @@
+.community-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.community-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.community-header p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.selection-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.select-btn {
+    padding: 12px 24px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    background: white;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-btn.active {
+    background: #ff7043;
+    color: #fff;
+    border-color: #ff7043;
+    box-shadow: 0 6px 15px rgba(66, 165, 245, 0.3);
+}
+
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.post-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 15px;
+    background: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.post-card .meta {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.post-card .content-preview {
+    font-size: 14px;
+    color: #555;
+}
+
+.no-result {
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* 모달 */
+.modal {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 90%;
+    text-align: left;
+    position: relative;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 8px 20px;
+    border: none;
+    background: #ff7043;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
