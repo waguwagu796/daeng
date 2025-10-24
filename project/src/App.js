@@ -8,8 +8,6 @@ import Register from "./components/Register";
 import ForgotPassword from './components/ForgotPassword';
 import Weather from './components/Weather';
 import Community from "./components/Community";
-import Map from "./components/Map";
-import RegionDetail from "./components/RegionDetail";
 
 function App() {
   return (
@@ -26,6 +24,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/find-password" element={<ForgotPassword />} />
         <Route path="*" element={<h1 align="center" style={{ color: 'red' }}>404 - 페이지를 찾을 수 없습니다</h1>} />
+        <Route path="/destination-detail" element={<DestinationsDetail/>}/>
       </Routes>
     </BrowserRouter>
   );
