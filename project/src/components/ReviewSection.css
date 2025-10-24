@@ -82,7 +82,7 @@
 }
 
 .review-form-card button {
-  background: #007bff;
+  background: #ff7043;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -91,7 +91,7 @@
 }
 
 .review-form-card button:hover {
-  background: #0056b3;
+  background: #ff5722;
 }
 
 .review-list {
