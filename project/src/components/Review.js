@@ -118,7 +118,7 @@ const ReviewSection = ({ destinationId, currentUser }) => {
           onChange={(e) => setContent(e.target.value)}
         />
         
-        <button onClick={submitReview}>작 성</button>
+        <button onClick={submitReview}>작성</button>
       </div>
 
       {reviews.length === 0 && <p className="no-reviews">첫 리뷰를 작성해보세요!</p>}
