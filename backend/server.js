@@ -6,9 +6,8 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const passwordRoutes = require('./routes/password');
-
-app.use('/api/password', passwordRoutes);
+// const passwordRoutes = require('./routes/password');
+// app.use('/api/password', passwordRoutes);
 
 // 데이터베이스 연결
 const connectDB = require('./config/database');
