@@ -7,10 +7,6 @@ const reviewRouter = require('./routes/review');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const passwordRoutes = require('./routes/password');
-
-app.use('/api/password', passwordRoutes);
-
 // 데이터베이스 연결
 const connectDB = require('./config/database');
 connectDB();
@@ -28,8 +24,13 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // 라우트
 const authRoutes = require('./routes/auth');
+const passwordRoutes = require('./routes/password');
+const weatherRoutes = require('./routes/weather');
+
 app.use('/api/auth', authRoutes);
 app.use('/api',reviewRouter)
+app.use('/api/password', passwordRoutes);
+app.use('/api/weather', weatherRoutes);
 
 // 기본 라우트
 app.get('/', (req, res) => {
@@ -38,6 +39,8 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
+      password: '/api/password',
+      weather: '/api/weather',
       boards: '/api/boards',
       places: '/api/places',
       wishlist: '/api/wishlist'
