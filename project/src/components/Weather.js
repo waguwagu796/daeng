@@ -121,11 +121,11 @@ const Weather = () => {
         {/* 지역 선택 */}
         <div className="region-selector">
           <h3>지역 선택</h3>
-          <div className="region-buttons">
+          <div className="button-group">
             {regions.map((region) => (
               <button
                 key={region}
-                className={`region-button ${selectedRegion === region ? 'active' : ''}`}
+                className={`select-btn ${selectedRegion === region ? 'active' : ''}`}
                 onClick={() => setSelectedRegion(region)}
               >
                 {region}
