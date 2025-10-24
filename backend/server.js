@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
+const reviewRouter = require('./routes/review');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ const passwordRoutes = require('./routes/password');
 const weatherRoutes = require('./routes/weather');
 
 app.use('/api/auth', authRoutes);
+app.use('/api',reviewRouter)
 app.use('/api/password', passwordRoutes);
 app.use('/api/weather', weatherRoutes);
 
