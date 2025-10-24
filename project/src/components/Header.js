@@ -48,6 +48,9 @@ const Header = () => {
                 <li className="nav-item">
                   <Link to="/weather" className="nav-link">날씨 정보</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/pettravelguide " className="nav-link">반려동물 교통정보</Link>
+                </li>
               </ul>
             </div>
 
