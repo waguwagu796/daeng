@@ -40,6 +40,9 @@ const Header = () => {
                   <Link to="/destinations" className="nav-link">여행지</Link>
                 </li>
                 <li className="nav-item">
+                  <Link to="/travelboard" className="nav-link">여행 게시판</Link>
+                </li>
+                <li className="nav-item">
                   <Link to="/community" className="nav-link">커뮤니티</Link>
                 </li>
                 <li className="nav-item">
