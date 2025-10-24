@@ -33,7 +33,7 @@
 
 .review-filter button.active,
 .review-sort button.active {
-  background: #007bff;
+  background: #ff7043;
   color: white;
 }
 
@@ -82,16 +82,26 @@
 }
 
 .review-form-card button {
-  background: #ff7043;
-  color: white;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%);
+  color: #ffffff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(255, 112, 67, 0.3);
 }
 
-.review-form-card button:hover {
-  background: #ff5722;
+.review-form-card button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 112, 67, 0.35);
+}
+
+.review-form-card button:hover:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(255, 112, 67, 0.3);
 }
 
 .review-list {
