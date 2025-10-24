@@ -69,7 +69,7 @@ const Register = () => {
           password: formData.password,
           name: formData.name,
           nickname: formData.nickname,
-          phone: formData.phone
+          // phone: formData.phone
         })
       });
 
