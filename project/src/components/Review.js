@@ -67,6 +67,17 @@ const ReviewSection = ({ destinationId, currentUser }) => {
   return (
     <div className="review-section">
       <h3>리뷰</h3>
+      <div className="rating-select">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              className={`star ${star <= rating ? "selected" : ""}`}
+              onClick={() => setRating(star)}
+            >
+              ★
+            </span>
+          ))}
+        </div>
       {reviews.length > 0 && (
         <p className="average-rating">평균 ⭐ {averageRating} ({reviews.length}명)</p>
       )}
@@ -106,17 +117,7 @@ const ReviewSection = ({ destinationId, currentUser }) => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
-        <div className="rating-select">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <span
-              key={star}
-              className={`star ${star <= rating ? "selected" : ""}`}
-              onClick={() => setRating(star)}
-            >
-              ★
-            </span>
-          ))}
-        </div>
+        
         <button onClick={submitReview}>작성</button>
       </div>
 
@@ -142,5 +143,4 @@ const ReviewSection = ({ destinationId, currentUser }) => {
     </div>
   );
 };
-
 export default ReviewSection;

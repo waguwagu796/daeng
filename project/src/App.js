@@ -10,6 +10,7 @@ import Weather from './components/Weather';
 import Community from "./components/Community";
 import DestinationsDetail from "./components/DestinationsDetail";
 import TravelBoard from "./components/TravelBoard";
+import PetTravelGuide from "./components/PetTravelGuide ";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/find-password" element={<ForgotPassword />} />
+        <Route path="/pettravelguide" element={<PetTravelGuide  />} />
         <Route path="*" element={<h1 align="center" style={{ color: 'red' }}>404 - 페이지를 찾을 수 없습니다</h1>} />
         <Route path="/destination-detail" element={<DestinationsDetail />} />
       </Routes>
