@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Register.css';
+import userService from '../services/userService';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,18 @@ const Register = () => {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [users,setUsers] = useState([])
   const navigate = useNavigate();
+
+
+    useEffect(()=>{
+        onData()
+    })
+
+    const onData = async() => {
+        const res = await userService.getUser()
+        setUsers(res)
+    }
 
   const handleChange = (e) => {
     setFormData({
@@ -47,7 +59,7 @@ const Register = () => {
 
     try {
       // 백엔드 API 호출
-      const response = await fetch('http://localhost:8080/api/auth/register', {
+      const response = await fetch('http://localhost:3000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

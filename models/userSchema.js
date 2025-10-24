@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 //스키마 정의
 const userSchema = mongoose.Schema({
     email: {
-        type: {String},
+        type: String,
         required:true,
         unique: true,
         trim: true
@@ -39,4 +39,5 @@ const userSchema = mongoose.Schema({
     }
 });
 
-// module.exports = mongoose.model('userdb', userSchema);
+module.exports = mongoose.model('userdb', userSchema);
+console.log('유저 모델 정의');

@@ -5,7 +5,7 @@ mongoose.set('strictQuery',false)
 const path = require('path')
 
 //스키마 호출
-require('./models/taxiSchema')
+require('./models/userSchema')
 
 //익스프레스 객체 생성
 const app = express()
@@ -20,7 +20,7 @@ app.set('port',process.env.PORT||8080)
 app.use(express.static('uploads'))
 
 //데이터베이스에 연결 (mongodb 연결이 되어있어야함)
-mongoose.connect('mongodb://127.0.0.1:27017/myDB')
+mongoose.connect('mongodb://127.0.0.1:27017/pro')
 
 console.log('데이터베이스 연결')
 
@@ -28,17 +28,8 @@ console.log('데이터베이스 연결')
 app.use(express.json())
 
 //라우터 등록
-require('./routers/taxiRouters')(app)
-require('./routers/imageRouters')(app,router)
-
+require('./routers/userRouters')(app)
 //Express 서버 시작
 http.createServer(app).listen(app.get('port'),()=>{
     console.log('서버를 시작했습니다 : ' + app.get('port'))
-})
-
-
-//배포판 만들기
-app.use(express.static(path.join(__dirname,'taxi/build')))
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname),'taxi/build/index.html')
 })
