@@ -94,7 +94,7 @@ const Destinations = () => {
             {error && <p className="error">{error}</p>}
 
             {/* 지역 선택 */}
-            <div className="selection-section">
+            <div className="selection-section2">
                 <h2>지역 선택</h2>
                 <div className="button-group">
                     {address.map((addr) => (
