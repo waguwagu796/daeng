@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 //db에 넣을거니까 taxiSchema에서 컬렉션 읽어와야함(호출)
-const User = mongoose.model('userdb')
+const User = mongoose.model('User')
 //이제 Taxi가 table
 
 //미들웨어 생성
