@@ -35,14 +35,14 @@ const PetTravelGuide = () => {
   };
 
   const guidelines = [
-    { text: '반려동물 여행 시 필수품', isTitle: true },
-    { text: '반려동물 여행시 유의사항', isTitle: true },
-    { text: '입마개 · 목줄 및 기타 안전장치', isTitle: false },
-    { text: '반려견의 이름 또는 연락처 기재된 목걸이 등', isTitle: false },
-    { text: '케이지 내 배설물 처리 준비물', isTitle: false },
-    { text: '애완동물 전용 이동장치·케이지 등', isTitle: false },
-    { text: '대중교통 이용시 반려견 안전장치 미착용 · 동반 승차 불가', isTitle: false },
-    { text: '케이지에는 "강아지가 타고 있습니다" 표시', isTitle: false }
+    { text: '· 반려동물 여행 시 필수품', isTitle: true },
+    { text: '· 반려동물 여행시 유의사항', isTitle: true },
+    { text: '· 입마개．목줄 및 기타 안전장치', isTitle: false },
+    { text: '· 반려견의 이름 또는 연락처 기재된 목걸이 등', isTitle: false },
+    { text: '· 케이지 내 배설물 처리 준비물', isTitle: false },
+    { text: '· 애완동물 전용 이동장치．케이지 등', isTitle: false },
+    { text: '· 대중교통 이용시 반려견 안전장치 미착용．동반 승차 불가', isTitle: false },
+    { text: '· 케이지에는 "강아지가 타고 있습니다" 표시', isTitle: false }
   ];
 
   const styles = {
