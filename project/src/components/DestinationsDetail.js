@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./DestinationsDetail.css";
 import KakaoMap from "./KakaoMap";
 import ReviewSection from "./Review";
+import Cookies from "js-cookie";
 
 const DestinationsDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { destination } = location.state || {};
+
+//최근 본 여행지 쿠키 저장
+  useEffect(() => {
+    if (destination) {
+      const maxItems = 100;
+      const existing = Cookies.get("recentDestinations");
+      const list = existing ? JSON.parse(existing) : [];
+
+      // 중복 방지
+      const filtered = list.filter((item) => item.title !== destination.title);
+      filtered.unshift({
+        title: destination.title,
+        image: destination.image,
+        address: destination.address,
+        id: destination._id || destination.id,
+      });
+
+      // 최대 5개까지만 저장
+      const updated = filtered.slice(0, maxItems);
+      Cookies.set("recentDestinations", JSON.stringify(updated), { expires: 7 });
+    }
+  }, [destination]);
 
   if (!destination) {
     return (

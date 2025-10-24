@@ -11,7 +11,7 @@ import Community from "./components/Community";
 import DestinationsDetail from "./components/DestinationsDetail";
 import TravelBoard from "./components/TravelBoard";
 import PetTravelGuide from "./components/PetTravelGuide ";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

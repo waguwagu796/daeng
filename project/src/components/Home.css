@@ -1,0 +1,51 @@
+.home {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.carousel-item {
+  transition: transform 0.8s ease-in-out;
+}
+
+.recent-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.recent-item {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.recent-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.recent-item h4 {
+  margin: 8px 0 4px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.recent-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.recent-item h3 {
+  margin: 10px;
+  font-size: 1.1rem;
+}
+
+.recent-item p {
+  margin: 0 5px 8px;
+  font-size: 0.85rem;
+  color: #666;
+}
