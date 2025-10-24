@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-cont boardScema = mongoose.Schema({
+const boardSchema = mongoose.Schema({
     userId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userdb',
