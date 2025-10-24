@@ -1,7 +1,7 @@
 /* 전체 컨테이너 */
 .weather-container {
   min-height: 100vh;
-  background: #f5f6fa; /* Register와 동일한 배경 */
+  background: #fff; /* Register와 동일한 배경 */
   padding: 100px 40px 60px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
