@@ -111,7 +111,7 @@ const Destinations = () => {
 
             {/* 카테고리 선택 */}
             {selectedAddress && (
-                <div className="selection-section">
+                <div className="selection-section2">
                     <h2>카테고리 선택</h2>
                     <div className="button-group">
                         {categories.map((category) => (
