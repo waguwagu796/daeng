@@ -164,7 +164,7 @@ const TravelBoard = () => {
           </button>
         </div>
         <button className="write-btn" onClick={() => setIsWriteModalOpen(true)}>
-          ✏️ 글쓰기
+          글쓰기
         </button>
       </div>
 

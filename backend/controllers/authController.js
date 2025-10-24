@@ -1,6 +1,6 @@
 const Member = require('../models/Member');
 const jwt = require('jsonwebtoken');
-const sendEmail = require('../utils/sendEmail');
+// const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
 
 // JWT 토큰 생성

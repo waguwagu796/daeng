@@ -1,0 +1,105 @@
+.destination-detail {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.back-btn:hover {
+  background: #ddd;
+}
+
+.detail-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.detail-image-box {
+  flex: 1 1 400px;
+}
+
+.detail-image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.detail-info {
+  flex: 1 1 400px;
+}
+
+.detail-title {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.detail-category {
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.detail-description {
+  margin-bottom: 20px;
+}
+
+.detail-description h3 {
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.detail-meta p {
+  margin: 4px 0;
+  color: #444;
+}
+
+.detail-map {
+  margin-top: 40px;
+}
+
+.map-box {
+  width: 100%;
+  height: 400px;
+  background: #f8f8f8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.detail-empty {
+  text-align: center;
+  margin-top: 100px;
+}
+.detail-empty button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.detail-empty button:hover {
+  background: #0056b3;
+}
