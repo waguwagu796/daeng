@@ -9,6 +9,8 @@ import ForgotPassword from './components/ForgotPassword';
 import Weather from './components/Weather';
 import Community from "./components/Community";
 import DestinationsDetail from "./components/DestinationsDetail";
+import TravelBoard from "./components/TravelBoard";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} exact />
         <Route path="/destinations" element={<Destinations />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/travelboard" element={<TravelBoard />} />
         <Route path="/weather" element={<Weather />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
