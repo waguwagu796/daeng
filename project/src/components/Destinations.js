@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Destinations.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Destinations = () => {
     const [selectedAddress, setSelectedAddress] = useState('');
@@ -9,6 +10,9 @@ const Destinations = () => {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
+
+    // 상세페이지 연결
+    const navigate = useNavigate()
 
     useEffect(() => {
         setIsLoading(true);
@@ -127,7 +131,10 @@ const Destinations = () => {
                             {filtered.map((destination, id) => (
                                 <div className="destination-card" key={id}>
                                     {/* <img src={destination.img || '/images/default.jpg'} alt={destination.title} className="destination-img" /> */}
-                                    <div className="destination-info">
+                                    <div className="destination-info"
+                                        key={id} 
+                                        onClick={()=>navigate('/destination-detail', {state: {destination}})}
+                                        style={{cursor: 'pointer'}}>
                                         <h3>{destination.title}</h3>
                                         <p>{destination.category2}</p>
                                         <p>{destination.address}</p>
